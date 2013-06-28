@@ -2,15 +2,19 @@
 document.getElementById('scene').appendChild(renderer.view);
 
 var stage = new PIXI.Stage();
-var bird  = new Bird();
-stage.addChild(bird);
+var birds = [];
+
+_(10).times(function(){
+  var bird = new Bird();
+  stage.addChild(bird);
+  birds.push(bird);
+})
 
 requestAnimationFrame(animate);
 
 var ticks = 0;
 function animate(){
-  // move, place birds in stage
-  bird.tick(ticks);
+  _.invoke(birds,'tick',ticks);
   renderer.render(stage);
   requestAnimationFrame(animate);
   ticks++;

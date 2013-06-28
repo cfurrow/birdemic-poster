@@ -5,8 +5,10 @@ function Bird() {
 
   this.anchor.x = 0.5;
   this.anchor.y = 0.5;
-  this.position.x = 300;
-  this.position.y = 72;
+
+  this.position.x = Math.random()*CANVASWIDTH;
+  this.position.y = Math.random()*CANVASHEIGHT;
+  
   this.width = 300;
   this.height = 72;
 
