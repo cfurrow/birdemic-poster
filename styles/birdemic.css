@@ -1,0 +1,13 @@
+body{
+  font-family: Helvetica Neue;
+}
+
+#scene{
+  width: 800px;
+  height: 600px;
+}
+
+.container{
+  width:960px;
+  margin: auto;
+}
