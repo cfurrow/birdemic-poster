@@ -2,6 +2,8 @@
 document.getElementById('scene').appendChild(renderer.view);
 
 var stage = new PIXI.Stage();
+var bg    = new PIXI.Sprite(PIXI.Texture.fromImage("images/birdemic_mayhem.jpg"));
+stage.addChild(bg);
 var birds = [];
 
 _(10).times(function(){
