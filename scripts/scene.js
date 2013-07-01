@@ -8,7 +8,7 @@ bg    = new PIXI.Sprite(PIXI.Texture.fromImage("images/birdemic-poster.jpg"));
 stage.addChild(bg);
 birds = [];
 
-_(10).times(function(){
+_(15).times(function(){
   var bird = new Bird();
   stage.addChild(bird);
   birds.push(bird);
