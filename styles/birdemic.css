@@ -3,8 +3,13 @@ body{
 }
 
 #scene{
-  width: 800px;
+  width: 960px;
   height: 600px;
+}
+#poster{
+  background-image: url(../images/birdemic-poster2.jpg);
+  width: 100%;
+  height: 745px;
 }
 
 .container{
