@@ -1,10 +1,12 @@
- var renderer = new PIXI.WebGLRenderer(CANVASWIDTH, CANVASHEIGHT);
+var renderer, stage, bg, birds, ticks;
+
+renderer = new PIXI.WebGLRenderer(CANVASWIDTH, CANVASHEIGHT);
 document.getElementById('scene').appendChild(renderer.view);
 
-var stage = new PIXI.Stage();
-var bg    = new PIXI.Sprite(PIXI.Texture.fromImage("images/birdemic_mayhem.jpg"));
+stage = new PIXI.Stage();
+bg    = new PIXI.Sprite(PIXI.Texture.fromImage("images/birdemic_mayhem.jpg"));
 stage.addChild(bg);
-var birds = [];
+birds = [];
 
 _(10).times(function(){
   var bird = new Bird();
@@ -14,7 +16,14 @@ _(10).times(function(){
 
 requestAnimationFrame(animate);
 
-var ticks = 0;
+var song = new Audio('audio/waiting-for-a-bird.ogg');
+song.play();
+song.addEventListener('ended', function() {
+  this.currentTime = 0;
+  this.play();
+}, false);
+
+ticks = 0;
 function animate(){
   _.invoke(birds,'tick',ticks);
   renderer.render(stage);
