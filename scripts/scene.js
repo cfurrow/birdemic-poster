@@ -4,7 +4,7 @@ renderer = new PIXI.WebGLRenderer(CANVASWIDTH, CANVASHEIGHT);
 document.getElementById('scene').appendChild(renderer.view);
 
 stage = new PIXI.Stage();
-bg    = new PIXI.Sprite(PIXI.Texture.fromImage("images/birdemic_mayhem.jpg"));
+bg    = new PIXI.Sprite(PIXI.Texture.fromImage("images/birdemic-poster.jpg"));
 stage.addChild(bg);
 birds = [];
 
