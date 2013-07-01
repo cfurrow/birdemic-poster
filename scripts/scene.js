@@ -1,4 +1,4 @@
-var renderer, stage, bg, birds, ticks;
+var renderer, stage, bg, birds, ticks, song, songPlaying;
 
 renderer = new PIXI.WebGLRenderer(CANVASWIDTH, CANVASHEIGHT);
 document.getElementById('scene').appendChild(renderer.view);
@@ -16,12 +16,7 @@ _(10).times(function(){
 
 requestAnimationFrame(animate);
 
-var song = new Audio('audio/waiting-for-a-bird.ogg');
-song.play();
-song.addEventListener('ended', function() {
-  this.currentTime = 0;
-  this.play();
-}, false);
+setupTheTunes();
 
 ticks = 0;
 function animate(){
@@ -29,4 +24,25 @@ function animate(){
   renderer.render(stage);
   requestAnimationFrame(animate);
   ticks++;
+}
+
+function setupTheTunes(){
+  song = new Audio('audio/waiting-for-a-bird.ogg');
+  songPlaying = true;
+  song.addEventListener('play', function() { songPlaying = true } );
+  song.addEventListener('pause', function() { songPlaying = false } );
+  song.addEventListener('ended', function() {
+    this.currentTime = 0;
+    this.play();
+  }, false);
+  song.play();
+}
+
+function toggleMusic(){
+  if(songPlaying){
+    song.pause();
+  }
+  else{
+    song.play();
+  }
 }
