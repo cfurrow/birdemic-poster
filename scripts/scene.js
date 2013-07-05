@@ -1,6 +1,6 @@
 var renderer, stage, bg, birds, ticks, song, songPlaying, singer, singerStage, singerRenderer;
 
-renderer = new PIXI.WebGLRenderer(CANVASWIDTH, CANVASHEIGHT);
+renderer = new PIXI.CanvasRenderer(CANVASWIDTH, CANVASHEIGHT);
 singerRenderer = new PIXI.CanvasRenderer(230, 230);
 document.getElementById('scene').appendChild(renderer.view);
 document.getElementById('singer-scene').appendChild(singerRenderer.view);

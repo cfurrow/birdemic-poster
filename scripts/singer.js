@@ -7,10 +7,10 @@ function Singer(){
   var texture = PIXI.Texture.fromImage("images/singer-bg.jpg");
   var mouthTexture = PIXI.Texture.fromImage("images/singer-jaw.png");
 
-  this.INITIAL_MOUTH_Y = 174;
+  this.INITIAL_MOUTH_Y = 87;
   
   this.mouthSprite  = new PIXI.Sprite(mouthTexture);
-  this.mouthSprite.position.x = 190;
+  this.mouthSprite.position.x = 95;
   this.mouthSprite.position.y = this.INITIAL_MOUTH_Y;
 
   PIXI.Sprite.call(this,texture);
@@ -64,7 +64,7 @@ Singer.prototype.shutUp = function(){
 }
 Singer.prototype.openMouth = function(){
   if(this.singing){
-    this.mouthSprite.position.y = this.INITIAL_MOUTH_Y+20;
+    this.mouthSprite.position.y = this.INITIAL_MOUTH_Y+5;
   }
 }
 Singer.prototype.closeMouth = function(){

@@ -9,8 +9,8 @@ function Bird() {
   this.position.x = Math.random()*CANVASWIDTH;
   this.position.y = Math.random()*CANVASHEIGHT;
   
-  this.width = 300;
-  this.height = 72;
+  this.width = 200;
+  this.height = 55;
 
   this.shakeAmount = 15;
   this.movement = {};
