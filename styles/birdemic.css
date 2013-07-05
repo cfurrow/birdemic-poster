@@ -12,6 +12,10 @@ h1,h2,h3,h4,h5,h6{
   width: 960px;
   height: 1250px;
 }
+#singer-scene{
+  width: 230px;
+  height: 230px;
+}
 
 #poster{
   background-image: url(../images/birdemic-poster2.jpg);
