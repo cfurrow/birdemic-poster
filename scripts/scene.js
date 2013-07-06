@@ -6,6 +6,7 @@ document.getElementById('scene').appendChild(renderer.view);
 document.getElementById('singer-scene').appendChild(singerRenderer.view);
 
 stage = new PIXI.Stage();
+stage.setInteractive(true);
 
 bg    = new PIXI.Sprite(PIXI.Texture.fromImage("images/birdemic-poster.jpg"));
 

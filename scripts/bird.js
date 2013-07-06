@@ -16,9 +16,31 @@ function Bird() {
   this.movement = {};
   this.movement.up = false;
   this.movement.right = false;
+
+  this.setInteractive(true);
+  this.buttonMode = true;
+  this.hitArea    = new PIXI.Rectangle(-(this.width/2),-(this.height/2),this.width,this.height);
+
+  this.loadSound();
 }
 Bird.constructor = Bird;
 Bird.prototype   = Object.create(PIXI.MovieClip.prototype);
+
+Bird.prototype.loadSound = function(){
+  this.sound = new Audio();
+  if(Modernizr.audio)
+  {
+    if(Modernizr.audio.mp3){
+      this.sound.src = 'audio/bird.mp3';
+    }
+    else if(Modernizr.audio.ogg){
+      this.sound.src = 'audio/bird.ogg';
+    }
+    else{
+      this.sound.src = 'audio/bird.m4a';
+    }  
+  }
+}
 
 Bird.prototype.tick = function(ticks){
   if(ticks % 5 === 0){
@@ -48,4 +70,9 @@ Bird.prototype.tick = function(ticks){
   else if(this.position.y < 0){
     this.movement.up = false;
   }
+}
+
+Bird.prototype.click = function(){
+  console.log('chirp');
+  this.sound.play();
 }

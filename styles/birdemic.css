@@ -45,6 +45,7 @@ h1
   margin: auto;
   background-color: #fff;
   padding: 20px;
+  border: solid 1px #e2e2e2;
 }
 
 #critics, #normies
