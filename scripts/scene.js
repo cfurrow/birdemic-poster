@@ -36,33 +36,45 @@ function animate(){
 }
 
 function setupTheTunes(){
+  var songUrl;
+  song = new Audio();
   if(Modernizr.audio.mp3){
-    song = new Audio('audio/waiting-for-a-bird.mp3');
+    songUrl = 'audio/waiting-for-a-bird.mp3';
   }
   else if(Modernizr.audio.ogg){
-    song = new Audio('audio/waiting-for-a-bird.ogg');
+    songUrl = 'audio/waiting-for-a-bird.ogg';
   }
   else{
-   song = new Audio('audio/waiting-for-a-bird.m4a');
-  } 
-  songPlaying = true;
+   songUrl = 'audio/waiting-for-a-bird.m4a';
+  }
+  song.src = songUrl;
+  console.log(song.src);
+  songPlaying = false;
   song.addEventListener('play', function() { songPlaying = true; setTimeout(function(){singer.sing.call(singer)},1100); } );
   song.addEventListener('pause', function() { songPlaying = false; singer.shutUp(); } );
   song.addEventListener('ended', function() {
     this.currentTime = 0;
     this.play();
   }, false);
-  song.play();
 
-  setTimeout(function(){singer.sing.call(singer)},1100);
 }
 
 function toggleMusic(){
+  var stopMusic, text, on, off;
+  stopMusic = document.getElementById('stop-music');
+  text      = stopMusic.getElementsByTagName('p')[0];
+  on = "Turn off music";
+  off = "Turn on music";
+  console.log('togglemusic()')
   if(songPlaying){
     song.pause();
+    text.innerHTML = off;
   }
   else{
-    song.currentTime = 0;
+    if(song.currentTime !== 0){
+      song.currentTime = 0;
+    }
     song.play();
+    text.innerHTML = on;
   }
 }
