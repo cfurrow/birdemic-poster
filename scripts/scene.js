@@ -48,7 +48,6 @@ function setupTheTunes(){
    songUrl = 'audio/waiting-for-a-bird.m4a';
   }
   song.src = songUrl;
-  console.log(song.src);
   songPlaying = false;
   song.addEventListener('play', function() { songPlaying = true; setTimeout(function(){singer.sing.call(singer)},1100); } );
   song.addEventListener('pause', function() { songPlaying = false; singer.shutUp(); } );
@@ -61,7 +60,7 @@ function setupTheTunes(){
 
 function toggleMusic(){
   var stopMusic, text, on, off;
-  stopMusic = document.getElementById('stop-music');
+  stopMusic = document.getElementById('music');
   text      = stopMusic.getElementsByTagName('p')[0];
   on = "Turn off music";
   off = "Turn on music";
