@@ -73,6 +73,5 @@ Bird.prototype.tick = function(ticks){
 }
 
 Bird.prototype.click = function(){
-  console.log('chirp');
   this.sound.play();
 }
