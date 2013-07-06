@@ -16,7 +16,7 @@ singerStage = new PIXI.Stage();
 singer = new Singer();
 singerStage.addChild(singer);
 
-_(5).times(function(){
+_(15).times(function(){
   var bird = new Bird();
   stage.addChild(bird);
   birds.push(bird);
