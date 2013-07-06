@@ -16,7 +16,7 @@ singerStage = new PIXI.Stage();
 singer = new Singer();
 singerStage.addChild(singer);
 
-_(15).times(function(){
+_(5).times(function(){
   var bird = new Bird();
   stage.addChild(bird);
   birds.push(bird);
@@ -36,7 +36,15 @@ function animate(){
 }
 
 function setupTheTunes(){
-  song = new Audio('audio/waiting-for-a-bird.ogg');
+  if(Modernizr.audio.mp3){
+    song = new Audio('audio/waiting-for-a-bird.mp3');
+  }
+  else if(Modernizr.audio.ogg){
+    song = new Audio('audio/waiting-for-a-bird.ogg');
+  }
+  else{
+   song = new Audio('audio/waiting-for-a-bird.m4a');
+  } 
   songPlaying = true;
   song.addEventListener('play', function() { songPlaying = true; setTimeout(function(){singer.sing.call(singer)},1100); } );
   song.addEventListener('pause', function() { songPlaying = false; singer.shutUp(); } );

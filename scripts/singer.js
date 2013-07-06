@@ -64,7 +64,7 @@ Singer.prototype.shutUp = function(){
 }
 Singer.prototype.openMouth = function(){
   if(this.singing){
-    this.mouthSprite.position.y = this.INITIAL_MOUTH_Y+5;
+    this.mouthSprite.position.y = this.INITIAL_MOUTH_Y + 10;
   }
 }
 Singer.prototype.closeMouth = function(){
