@@ -107,7 +107,7 @@ Singer.prototype.setupTheTunes = function(){
   songPlaying = false;
   function playCallback(){
     songPlaying = true; 
-    setTimeout(function(){self.sing.call(self)},1100); 
+    self.startMovingMouth();
   }
   function pauseCallback(){
     songPlaying = false; self.shutUp();
@@ -119,6 +119,12 @@ Singer.prototype.setupTheTunes = function(){
     this.play();
   }, false);
 
+}
+
+Singer.prototype.startMovingMouth = function(){
+  var delayInMs = 791;
+  var self = this;
+  setTimeout(function(){self.sing.call(self)},delayInMs); 
 }
 
 Singer.prototype.toggleMusic = function(){
