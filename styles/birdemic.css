@@ -62,20 +62,21 @@ h1
 
 #critics li{
  clear: both;
- height:50px;
  margin-bottom: 20px;
 }
 
-#critics li quote{
+#critics li blockquote{
   color: #444;
-  display: block;
   padding-top: 10px;
+  margin: 0;
 }
 
-#critics li span
+#critics li p
 {
   color: #666;
+  margin: 0;
   font-size: 0.85em;
+  margin-left: 60px;
 }
 
 #critics li img{
@@ -94,9 +95,9 @@ h1
 #normies li:last-child  {
   border-bottom: 0;
 }
-#normies li quote{
-  display: block;
+#normies li blockquote{
   color: #444;
+  margin: 0;
 }
 
 #normies li span
